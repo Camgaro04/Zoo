@@ -17,7 +17,7 @@ import javax.persistence.ManyToOne;
 
 /**
  *
- * @author windows
+ * @author andres Correa
  */
 @Entity
 public class HorarioEntity implements Serializable{
