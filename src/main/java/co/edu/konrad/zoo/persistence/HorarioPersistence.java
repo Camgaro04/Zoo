@@ -1,14 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.edu.konrad.zoo.persistence;
+
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author windows
+ * @author Grupo Zoo
  */
+@Stateless
 public class HorarioPersistence {
-    
+    /**
+     * Manejador
+     */
+    @PersistenceContext(unitName = "ZooPU")
+    protected EntityManager em;
 }
