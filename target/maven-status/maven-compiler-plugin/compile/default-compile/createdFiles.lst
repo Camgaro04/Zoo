@@ -24,6 +24,7 @@ co/edu/konrad/zoo/entities/LugaresEntity.class
 co/edu/konrad/zoo/persistence/AnimalesShowPersistence.class
 co/edu/konrad/zoo/entities/HorarioTipoAlimentosEntity.class
 co/edu/konrad/zoo/persistence/CalificacionPersistence.class
+co/edu/konrad/zoo/entities/HorarioTipoAlimentosEntity$PK_A.class
 co/edu/konrad/zoo/logic/TipoIdentificacionLogic.class
 co/edu/konrad/zoo/entities/ShowEntity.class
 co/edu/konrad/zoo/persistence/CuidadorPersistence.class
