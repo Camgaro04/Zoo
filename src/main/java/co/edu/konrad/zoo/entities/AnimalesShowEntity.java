@@ -27,6 +27,41 @@ public class AnimalesShowEntity {
     @JoinColumn(name = "id_show")
     @ManyToOne
     private ShowEntity idShow;
+
+    public AnimalesShowEntity() {
+    }
+
+    public AnimalesShowEntity(PK_AnimalesShow clave, AnimalesEntity idAnimal, ShowEntity idShow) {
+        this.clave = clave;
+        this.idAnimal = idAnimal;
+        this.idShow = idShow;
+    }
+
+    public PK_AnimalesShow getClave() {
+        return clave;
+    }
+
+    public AnimalesEntity getIdAnimal() {
+        return idAnimal;
+    }
+
+    public ShowEntity getIdShow() {
+        return idShow;
+    }
+
+    public void setClave(PK_AnimalesShow clave) {
+        this.clave = clave;
+    }
+
+    public void setIdAnimal(AnimalesEntity idAnimal) {
+        this.idAnimal = idAnimal;
+    }
+
+    public void setIdShow(ShowEntity idShow) {
+        this.idShow = idShow;
+    }
+    
+    
     
     /**
      * 
