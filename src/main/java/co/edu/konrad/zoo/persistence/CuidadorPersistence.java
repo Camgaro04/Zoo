@@ -12,40 +12,42 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class CuidadorPersistence {
+
     /**
      * Manejador
      */
     @PersistenceContext(unitName = "ZooPU")
     protected EntityManager em;
-    
+
     /**
      * Obtiene todo
-     * @return  List<CuidadorEntity>
+     *
+     * @return List<CuidadorEntity>
      */
-    public List<CuidadorEntity> findAll(){ 
+    public List<CuidadorEntity> findAll() {
         return em.createQuery("select p from CuidadorEntity p").getResultList();
     }
-    
+
     /**
      * Busqueda por ID
+     *
      * @param id
      * @return CuidadorEntity
      */
-    public CuidadorEntity find(int id){
+    public CuidadorEntity find(int id) {
         return em.find(CuidadorEntity.class, id);
     }
-    
-    public CuidadorEntity insert(CuidadorEntity p){
+
+    public CuidadorEntity insert(CuidadorEntity p) {
         em.persist(p);
         return p;
     }
-    
-    
-    public CuidadorEntity update(CuidadorEntity p){
+
+    public CuidadorEntity update(CuidadorEntity p) {
         return em.merge(p);
     }
-    
-    public void delete(int id){
+
+    public void delete(int id) {
         CuidadorEntity cuidadorEntity = em.find(CuidadorEntity.class, id);
         em.remove(cuidadorEntity);
     }
