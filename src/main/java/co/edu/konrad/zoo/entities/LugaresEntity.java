@@ -7,7 +7,7 @@ import javax.persistence.Id;
 
 /**
  *
- * @author Grupo Zoo
+ * @author Luis
  */
 public class LugaresEntity {
      /**
