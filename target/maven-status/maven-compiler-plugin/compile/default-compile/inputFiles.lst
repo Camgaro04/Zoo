@@ -9,13 +9,16 @@
 /home/luis/NetBeansProjects/Zoo/src/main/java/co/edu/konrad/zoo/persistence/EspeciePersistence.java
 /home/luis/NetBeansProjects/Zoo/src/main/java/co/edu/konrad/zoo/logic/TipoAnimalLogic.java
 /home/luis/NetBeansProjects/Zoo/src/main/java/co/edu/konrad/zoo/persistence/TipoAlimentoPersistence.java
+/home/luis/NetBeansProjects/Zoo/src/main/java/co/edu/konrad/zoo/dto/TipoIdentificacionDTO.java
 /home/luis/NetBeansProjects/Zoo/src/main/java/co/edu/konrad/zoo/entities/TipoAlimentoEntity.java
 /home/luis/NetBeansProjects/Zoo/src/main/java/co/edu/konrad/zoo/entities/LugaresEntity.java
 /home/luis/NetBeansProjects/Zoo/src/main/java/co/edu/konrad/zoo/persistence/AnimalesShowPersistence.java
 /home/luis/NetBeansProjects/Zoo/src/main/java/co/edu/konrad/zoo/persistence/LugarPersistence.java
 /home/luis/NetBeansProjects/Zoo/src/main/java/co/edu/konrad/zoo/persistence/TipoAnimalPersistence.java
+/home/luis/NetBeansProjects/Zoo/src/main/java/co/edu/konrad/zoo/dto/CuidadorDTO.java
 /home/luis/NetBeansProjects/Zoo/src/main/java/co/edu/konrad/zoo/persistence/PersonaPersistence.java
 /home/luis/NetBeansProjects/Zoo/src/main/java/co/edu/konrad/zoo/persistence/AnimalPersistence.java
+/home/luis/NetBeansProjects/Zoo/src/main/java/co/edu/konrad/zoo/dto/PersonaDTO.java
 /home/luis/NetBeansProjects/Zoo/src/main/java/co/edu/konrad/zoo/persistence/HorarioPersistence.java
 /home/luis/NetBeansProjects/Zoo/src/main/java/co/edu/konrad/zoo/entities/HorarioEntity.java
 /home/luis/NetBeansProjects/Zoo/src/main/java/co/edu/konrad/zoo/entities/EspeciesEntity.java
