@@ -44,5 +44,58 @@ public class CalificacionEntity {
      */
     @Column(name = "onservacion")
     private String observacion;
+
+    public CalificacionEntity() {
+    }
+
+    public CalificacionEntity(long idCalificacion, ShowEntity idShow, AnimalesEntity idAnimal, int calificacion, String observacion) {
+        this.idCalificacion = idCalificacion;
+        this.idShow = idShow;
+        this.idAnimal = idAnimal;
+        this.calificacion = calificacion;
+        this.observacion = observacion;
+    }
+
+    public long getIdCalificacion() {
+        return idCalificacion;
+    }
+
+    public ShowEntity getIdShow() {
+        return idShow;
+    }
+
+    public AnimalesEntity getIdAnimal() {
+        return idAnimal;
+    }
+
+    public int getCalificacion() {
+        return calificacion;
+    }
+
+    public String getObservacion() {
+        return observacion;
+    }
+
+    public void setIdCalificacion(long idCalificacion) {
+        this.idCalificacion = idCalificacion;
+    }
+
+    public void setIdShow(ShowEntity idShow) {
+        this.idShow = idShow;
+    }
+
+    public void setIdAnimal(AnimalesEntity idAnimal) {
+        this.idAnimal = idAnimal;
+    }
+
+    public void setCalificacion(int calificacion) {
+        this.calificacion = calificacion;
+    }
+
+    public void setObservacion(String observacion) {
+        this.observacion = observacion;
+    }
    
+    
+    
 }
