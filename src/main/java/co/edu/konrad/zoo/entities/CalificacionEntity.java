@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 
 /**
  *
- * @author Grupo Zoo
+ * @author Luis
  */
 public class CalificacionEntity {
      /**
