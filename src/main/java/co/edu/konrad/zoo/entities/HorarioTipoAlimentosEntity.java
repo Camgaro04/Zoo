@@ -15,8 +15,11 @@ import javax.persistence.ManyToOne;
 @Entity
 public class HorarioTipoAlimentosEntity implements Serializable {
 
+    /**
+     * 
+     */
     @EmbeddedId
-    private PK_A clave;
+    private PK_AHorarioTipoAlimentos clave;
 
     /**
      *
@@ -56,7 +59,7 @@ public class HorarioTipoAlimentosEntity implements Serializable {
         return idTipoAlimentos;
     }
 
-    public class PK_A {
+    public class PK_AHorarioTipoAlimentos {
 
         @Column
         private String idHorario;
