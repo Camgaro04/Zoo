@@ -1,56 +1,51 @@
-package co.edu.konrad.zoo.entities;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package co.edu.konrad.zoo.dto;
 
-import java.io.Serializable;
+import co.edu.konrad.zoo.entities.PersonaEntity;
+import co.edu.konrad.zoo.entities.TipoIdentificacionEntity;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 /**
  *
- * @author Grupo Zoo
+ * @author windows
  */
-@Entity
-public class PersonaEntity implements Serializable{
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class PersonaDTO {
     private int idPersona;
-    
-    @Column(name="nombre_completo")
     private String nombreCompleto;
-   
-    @Column(name="numero_identificacion")
     private String numeroIdentificacion;
-    
-    @Column(name="fecha_nacimiento")
     private Date fechaNacimiento;
-    
-    @Column(name="numero_celular")
     private String numeroCelular;
-    
-    @JoinColumn(name="tipo_identificacion")
-    @ManyToOne
     private TipoIdentificacionEntity idTipoIdentificacion; 
     
-    public PersonaEntity(){
+    public PersonaDTO(){
     
-    }    
-
-    public PersonaEntity(int idPersona,String nombreCompleto,String numeroIdentificacion,
-            TipoIdentificacionEntity idTipoIdentificacion, Date fechaNacimiento,String numeroCelular ){
-        
-        this.idPersona = idPersona;
-        this.nombreCompleto = nombreCompleto;
-        this.numeroIdentificacion = numeroIdentificacion;
-        this.idTipoIdentificacion = idTipoIdentificacion;
-        this.fechaNacimiento = fechaNacimiento;
-        this.numeroCelular = numeroCelular;
     }
+    
+    public PersonaDTO(PersonaEntity personaEntity){
+        this.idPersona = personaEntity.getIdPersona();
+        this.nombreCompleto = personaEntity.getNombreCompleto();
+        this.numeroIdentificacion = personaEntity.getNumeroIdentificacion();
+        this.fechaNacimiento = personaEntity.getFechaNacimiento();
+        this.numeroCelular = personaEntity.getNumeroCelular();
+        this.idTipoIdentificacion = personaEntity.getIdTipoIdentificacion();
+    }
+
+    public PersonaEntity toEntity(){
+        PersonaEntity personaEntity = new PersonaEntity();
+        personaEntity.setIdPersona(this.idPersona);
+        personaEntity.setFechaNacimiento(this.fechaNacimiento);
+        personaEntity.setNombreCompleto(this.nombreCompleto);
+        personaEntity.setNumeroCelular(this.numeroCelular);
+        personaEntity.setNumeroIdentificacion(this.numeroIdentificacion);
+        personaEntity.setIdTipoIdentificacion(this.idTipoIdentificacion);
+        
+        return personaEntity;
+    }
+    
     
     /**
      * @return the idPersona
@@ -78,20 +73,6 @@ public class PersonaEntity implements Serializable{
      */
     public void setNombreCompleto(String nombreCompleto) {
         this.nombreCompleto = nombreCompleto;
-    }
-
-    /**
-     * @return the idTipoIdentificacion
-     */
-    public TipoIdentificacionEntity getIdTipoIdentificacion() {
-        return idTipoIdentificacion;
-    }
-
-    /**
-     * @param idTipoIdentificacion the idTipoIdentificacion to set
-     */
-    public void setIdTipoIdentificacion(TipoIdentificacionEntity idTipoIdentificacion) {
-        this.idTipoIdentificacion = idTipoIdentificacion;
     }
 
     /**
@@ -134,5 +115,19 @@ public class PersonaEntity implements Serializable{
      */
     public void setNumeroCelular(String numeroCelular) {
         this.numeroCelular = numeroCelular;
+    }
+
+    /**
+     * @return the idTipoIdentificacion
+     */
+    public TipoIdentificacionEntity getIdTipoIdentificacion() {
+        return idTipoIdentificacion;
+    }
+
+    /**
+     * @param idTipoIdentificacion the idTipoIdentificacion to set
+     */
+    public void setIdTipoIdentificacion(TipoIdentificacionEntity idTipoIdentificacion) {
+        this.idTipoIdentificacion = idTipoIdentificacion;
     }
 }
