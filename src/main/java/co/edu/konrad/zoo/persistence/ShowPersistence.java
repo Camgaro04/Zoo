@@ -70,4 +70,10 @@ public class ShowPersistence {
         ShowEntity entity = em.find(ShowEntity.class, id);
         em.remove(id);
     }
+    /**
+     * Insertar 
+     * @param p
+     * @return 
+     */
+     
 }
