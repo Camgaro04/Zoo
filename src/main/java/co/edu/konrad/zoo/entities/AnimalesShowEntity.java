@@ -1,7 +1,10 @@
 package co.edu.konrad.zoo.entities;
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
@@ -9,11 +12,15 @@ import javax.persistence.ManyToOne;
  *
  * @author Luis
  */
-public class AnimalesShowEntity {
+@Entity
+public class AnimalesShowEntity  implements Serializable {
     
-    @EmbeddedId
-    private PK_AnimalesShow clave;
-
+   /**
+     * 
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long idAnimalesShow;
     /**
      *
      */
@@ -31,47 +38,36 @@ public class AnimalesShowEntity {
     public AnimalesShowEntity() {
     }
 
-    public AnimalesShowEntity(PK_AnimalesShow clave, AnimalesEntity idAnimal, ShowEntity idShow) {
-        this.clave = clave;
+    public AnimalesShowEntity(long idAnimalesShow, AnimalesEntity idAnimal, ShowEntity idShow) {
+        this.idAnimalesShow = idAnimalesShow;
         this.idAnimal = idAnimal;
         this.idShow = idShow;
     }
 
-    public PK_AnimalesShow getClave() {
-        return clave;
+    public long getIdAnimalesShow() {
+        return idAnimalesShow;
+    }
+
+    public void setIdAnimalesShow(long idAnimalesShow) {
+        this.idAnimalesShow = idAnimalesShow;
     }
 
     public AnimalesEntity getIdAnimal() {
         return idAnimal;
     }
 
-    public ShowEntity getIdShow() {
-        return idShow;
-    }
-
-    public void setClave(PK_AnimalesShow clave) {
-        this.clave = clave;
-    }
-
     public void setIdAnimal(AnimalesEntity idAnimal) {
         this.idAnimal = idAnimal;
+    }
+
+    public ShowEntity getIdShow() {
+        return idShow;
     }
 
     public void setIdShow(ShowEntity idShow) {
         this.idShow = idShow;
     }
-    
-    
-    
-    /**
-     * 
-     */
-     public class PK_AnimalesShow {
 
-        @Column
-        private String idAnimal;
-        
-        @Column
-        private String idShow;
-    }
+    
+   
 }

@@ -1,17 +1,21 @@
 package co.edu.konrad.zoo.entities;
 
+import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 /**
  *
  * @author Luis
  */
-public class AnimalesEntity {
+@Entity
+public class AnimalesEntity  implements Serializable {
      /**
      * 
      */
@@ -38,15 +42,15 @@ public class AnimalesEntity {
     private String descripcion;
     
     @JoinColumn(name = "especie")
-    @ManyToMany
+    @ManyToOne
     private EspeciesEntity especie;
     
     @JoinColumn(name = "tipo_animal")
-    @ManyToMany
+    @ManyToOne
     private TipoAnimalEntity tipoAnimal;
     
     @JoinColumn(name = "cuidador")
-    @ManyToMany
+    @ManyToOne
     private CuidadorEntity cuidador;
 
     public AnimalesEntity() {

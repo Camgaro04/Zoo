@@ -1,17 +1,21 @@
 package co.edu.konrad.zoo.entities;
 
+import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 /**
  *
  * @author Luis
  */
-public class ShowEntity {
+@Entity
+public class ShowEntity  implements Serializable {
     /**
      * 
      */
@@ -29,21 +33,21 @@ public class ShowEntity {
      * 
      */
     @JoinColumn(name = "horario")
-    @ManyToMany
+    @ManyToOne
     private HorarioEntity horario;
     
     /**
      * 
      */
     @JoinColumn(name = "persona_encargada")
-    @ManyToMany
+    @ManyToOne
     private PersonaEntity personaEncargada;
     
     /**
      * 
      */
     @JoinColumn(name = "lugar")
-    @ManyToMany
+    @ManyToOne
     private LugaresEntity lugar;
 
     public ShowEntity() {

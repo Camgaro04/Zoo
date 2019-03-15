@@ -1,10 +1,11 @@
 package co.edu.konrad.zoo.entities;
 
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
@@ -18,9 +19,9 @@ public class HorarioTipoAlimentosEntity implements Serializable {
     /**
      * 
      */
-    @EmbeddedId
-    private PK_AHorarioTipoAlimentos clave;
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long idHorarioTipoAlimentos;
     /**
      *
      */
@@ -38,34 +39,33 @@ public class HorarioTipoAlimentosEntity implements Serializable {
     public HorarioTipoAlimentosEntity() {
     }
 
-    public HorarioTipoAlimentosEntity(HorarioEntity idHorario, TipoAlimentoEntity idTipoAlimentos) {
+    public HorarioTipoAlimentosEntity(long idHorarioTipoAlimentos, HorarioEntity idHorario, TipoAlimentoEntity idTipoAlimentos) {
+        this.idHorarioTipoAlimentos = idHorarioTipoAlimentos;
         this.idHorario = idHorario;
         this.idTipoAlimentos = idTipoAlimentos;
     }
 
-    public void setIdHorario(HorarioEntity idHorario) {
-        this.idHorario = idHorario;
+    public long getIdHorarioTipoAlimentos() {
+        return idHorarioTipoAlimentos;
     }
 
-    public void setIdTipoAlimentos(TipoAlimentoEntity idTipoAlimentos) {
-        this.idTipoAlimentos = idTipoAlimentos;
+    public void setIdHorarioTipoAlimentos(long idHorarioTipoAlimentos) {
+        this.idHorarioTipoAlimentos = idHorarioTipoAlimentos;
     }
 
     public HorarioEntity getIdHorario() {
         return idHorario;
     }
 
+    public void setIdHorario(HorarioEntity idHorario) {
+        this.idHorario = idHorario;
+    }
+
     public TipoAlimentoEntity getIdTipoAlimentos() {
         return idTipoAlimentos;
     }
 
-    public class PK_AHorarioTipoAlimentos {
-
-        @Column
-        private String idHorario;
-        
-        @Column
-        private String idTipoAlimentos;
+    public void setIdTipoAlimentos(TipoAlimentoEntity idTipoAlimentos) {
+        this.idTipoAlimentos = idTipoAlimentos;
     }
-
 }
