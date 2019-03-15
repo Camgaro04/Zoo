@@ -12,32 +12,30 @@ import javax.inject.Inject;
 
 @Stateless
 public class CalificacionLogic {
-    
+
     @Inject
-     private CalificacionPersistence persistence;
-    
-      public List<CalificacionEntity> findAll(){
+    private CalificacionPersistence persistence;
+
+    public List<CalificacionEntity> findAll() {
         return persistence.findAll();
     }
-    
-    public CalificacionEntity findById(long id){
+
+    public CalificacionEntity findById(long id) {
         return persistence.find(id);
     }
-    
-    
-     public CalificacionEntity insert(CalificacionEntity p){
+
+    public CalificacionEntity insert(CalificacionEntity p) {
         persistence.create(p);
         return p;
     }
-     
-    public CalificacionEntity update(CalificacionEntity p){
+
+    public CalificacionEntity update(CalificacionEntity p) {
         persistence.merge(p);
         return p;
     }
-    
-    
-    public void delete(int id){
+
+    public void delete(int id) {
         persistence.delete(id);
     }
-    
+
 }
