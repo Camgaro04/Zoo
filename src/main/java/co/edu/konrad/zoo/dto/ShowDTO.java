@@ -1,60 +1,66 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.edu.konrad.zoo.dto;
 
 /**
  *
  * @author Andres Correa
  */
-
-
 import co.edu.konrad.zoo.entities.ShowEntity;
 import co.edu.konrad.zoo.entities.PersonaEntity;
 import co.edu.konrad.zoo.entities.HorarioEntity;
 import co.edu.konrad.zoo.entities.LugaresEntity;
-
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class ShowDTO {
+
     private long idShow;
     private String nombreShow;
     private HorarioEntity idHorario;
     private PersonaEntity idPersonaEncargada;
-    private LugaresEntity idLugaresEntity;    
+    private LugaresEntity idLugaresEntity;
+
     /**
      * Constructor
      */
     public ShowDTO() {
     }
-  /**
-   * 
-   * @param showEntity 
-   */
-    public ShowDTO(ShowEntity showEntity){
+
+    /**
+     *
+     * @param showEntity
+     */
+    public ShowDTO(ShowEntity showEntity) {
         this.idShow = showEntity.getIdShow();
         this.nombreShow = showEntity.getNombre();
         this.idHorario = showEntity.getHorario();
         this.idPersonaEncargada = showEntity.getPersonaEncargada();
         this.idLugaresEntity = showEntity.getLugar();
-        
+
     }
 
-    public ShowEntity toEntity(){
+    public ShowEntity toEntity() {
         ShowEntity showEntity = new ShowEntity();
         showEntity.setIdShow(this.idShow);
         showEntity.setNombre(this.nombreShow);
         showEntity.setHorario(this.idHorario);
         showEntity.setPersonaEncargada(this.idPersonaEncargada);
-        showEntity.setLugar(this.idLugaresEntity);        
-        
+        showEntity.setLugar(this.idLugaresEntity);
+
         return showEntity;
     }
+
+    public static List<ShowDTO> toShowList(List<ShowEntity> show) {
+
+        List<ShowDTO> listaShows = new ArrayList<>();
+        for (ShowEntity entity : show) {
+            listaShows.add(new ShowDTO(entity));
+        }
+        return listaShows;
+    }
+
     /**
-     * 
-     * @return 
+     *
+     * @return
      */
     public long getIdShow() {
         return idShow;
@@ -96,6 +102,4 @@ public class ShowDTO {
         this.idLugaresEntity = idLugaresEntity;
     }
 
-    
-    
 }

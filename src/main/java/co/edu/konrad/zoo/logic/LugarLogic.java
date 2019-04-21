@@ -10,65 +10,61 @@ import javax.inject.Inject;
  *
  * @author Andres Hernandez
  */
-
 @Stateless
 public class LugarLogic {
-    
+
     @Inject
     private LugarPersistence persistence;
-    
-    
+
     /**
      * Get All
      *
      * @return Selecciona todos los lugares
      */
-    public List<LugaresEntity> findAll(){
+    public List<LugaresEntity> findAll() {
         return persistence.findAll();
     }
-    
-    
+
     /**
      * Get
      *
      * @param id
      * @return Selecciona un Lugar x ID
      */
-    public LugaresEntity findById(long id){
+    public LugaresEntity findById(long id) {
         return persistence.find(id);
     }
-    
+
     /**
      * Insert
      *
      * @param Lugar
      * @return Inserta Lugar
      */
-    public LugaresEntity insert(LugaresEntity lugar){
+    public LugaresEntity insert(LugaresEntity lugar) {
         persistence.create(lugar);
         return lugar;
     }
-    
+
     /**
      * Update
      *
      * @param p
      * @return actualizado
      */
-    public LugaresEntity update(LugaresEntity p){
-        persistence.merge(p);
-        return p;
+    public LugaresEntity actualizarLugares(long id, LugaresEntity entity) {
+        LugaresEntity LugaresActualizado = persistence.merge(entity);
+        return LugaresActualizado;
     }
-    
-    
-     /**
+
+    /**
      * Delete
      *
      * @param id
      * @return Eliminacion
      */
-    public void delete(long id){
+    public void delete(long id) {
         persistence.delete(id);
     }
-    
+
 }

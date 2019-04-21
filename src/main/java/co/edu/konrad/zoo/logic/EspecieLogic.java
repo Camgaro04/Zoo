@@ -10,64 +10,54 @@ import javax.inject.Inject;
  *
  * @author Andres Hernandez
  */
-
 @Stateless
 public class EspecieLogic {
-    
+
     @Inject
     private EspeciePersistence persistence;
-    
-    
+
     /**
      * Get All
      *
      * @return Selecciona todos los lugares
      */
-    public List<EspeciesEntity> findAll(){
+    public List<EspeciesEntity> findAll() {
         return persistence.findAll();
     }
-    
-    
+
     /**
      * Get
      *
      * @param id
      * @return Selecciona una especie x ID
      */
-    public EspeciesEntity findById(long id){
+    public EspeciesEntity findById(long id) {
         return persistence.find(id);
     }
-    
+
     /**
      * Insert
      *
      * @param especie
      * @return Inserta Especie
      */
-    public EspeciesEntity insert(EspeciesEntity especie){
+    public EspeciesEntity insert(EspeciesEntity especie) {
         persistence.create(especie);
         return especie;
     }
-    
-    /**
-     * Update
-     *
-     * @param p
-     * @return actualizado
-     */
-    public EspeciesEntity update(EspeciesEntity p){
-        persistence.merge(p);
-        return p;
+
+    public EspeciesEntity actualizarEspecie(long id, EspeciesEntity entity) {
+        EspeciesEntity EspecieActualizado = persistence.merge(entity);
+        return EspecieActualizado;
     }
-    
-    
-     /**
+
+    /**
      * Delete
      *
      * @param id
      * @return Eliminacion
      */
-    public void delete(long id){
+    public void delete(long id) {
         persistence.delete(id);
     }
 }

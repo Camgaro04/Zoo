@@ -12,31 +12,30 @@ import javax.inject.Inject;
  */
 @Stateless
 public class PersonaLogic {
+
     @Inject
     private PersonaPersistence persistence;
-    
-    public List<PersonaEntity> findAll(){
+
+    public List<PersonaEntity> findAll() {
         return persistence.findAll();
     }
-    
-    public PersonaEntity findById(int id){
+
+    public PersonaEntity findById(int id) {
         return persistence.find(id);
     }
-    
-    
-     public PersonaEntity insert(PersonaEntity p){
+
+    public PersonaEntity insert(PersonaEntity p) {
         persistence.insert(p);
         return p;
     }
-     
-    public PersonaEntity update(PersonaEntity p){
-        persistence.update(p);
-        return p;
+
+    public PersonaEntity actualizarPersona(long id, PersonaEntity entity) {
+        PersonaEntity PersonaActualizado = persistence.update(entity);
+        return PersonaActualizado;
     }
-    
-    
-    public void delete(int id){
+
+    public void delete(int id) {
         persistence.delete(id);
     }
-   
+
 }

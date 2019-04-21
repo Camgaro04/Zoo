@@ -29,9 +29,9 @@ public class CalificacionLogic {
         return p;
     }
 
-    public CalificacionEntity update(CalificacionEntity p) {
-        persistence.merge(p);
-        return p;
+    public CalificacionEntity actualizarCalificacion(long id, CalificacionEntity entity) {
+        CalificacionEntity CalificacionActualizado = persistence.merge(entity);
+        return CalificacionActualizado;
     }
 
     public void delete(int id) {

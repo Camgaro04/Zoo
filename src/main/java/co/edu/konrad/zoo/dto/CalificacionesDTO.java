@@ -1,44 +1,53 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.edu.konrad.zoo.dto;
-import co.edu.konrad.zoo.entities.CalificacionEntity;
+
 import co.edu.konrad.zoo.entities.AnimalesEntity;
+import co.edu.konrad.zoo.entities.CalificacionEntity;
 import co.edu.konrad.zoo.entities.ShowEntity;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Andres Correa
  */
 public class CalificacionesDTO {
+
     private long idCalificacion;
-    private ShowEntity idShows;    
+    private ShowEntity idShows;
     private AnimalesEntity idAnimal;
-    private int Calificacion;  
-    private String Observacion;  
+    private int Calificacion;
+    private String Observacion;
 
     public CalificacionesDTO() {
     }
-    
-    public CalificacionesDTO(CalificacionEntity calificacionEntity){
+
+    public CalificacionesDTO(CalificacionEntity calificacionEntity) {
         this.idCalificacion = calificacionEntity.getIdCalificacion();
         this.idShows = calificacionEntity.getIdShow();
         this.idAnimal = calificacionEntity.getIdAnimal();
         this.Calificacion = calificacionEntity.getCalificacion();
         this.Observacion = calificacionEntity.getObservacion();
-        
+
     }
-    public CalificacionEntity toEntity(){
+
+    public CalificacionEntity toEntity() {
         CalificacionEntity calificacionEntity = new CalificacionEntity();
         calificacionEntity.setIdCalificacion(this.idCalificacion);
         calificacionEntity.setIdShow(this.idShows);
         calificacionEntity.setIdAnimal(this.idAnimal);
         calificacionEntity.setCalificacion(this.Calificacion);
-        calificacionEntity.setObservacion(this.Observacion);    
-        
+        calificacionEntity.setObservacion(this.Observacion);
+
         return calificacionEntity;
+    }
+
+    public static List<CalificacionesDTO> toCalificacionesList(List<CalificacionEntity> calificaciones) {
+
+        List<CalificacionesDTO> listaSalificaciones = new ArrayList<>();
+        for (CalificacionEntity entity : calificaciones) {
+            listaSalificaciones.add(new CalificacionesDTO(entity));
+        }
+        return listaSalificaciones;
     }
 
     public long getIdCalificacion() {
@@ -80,5 +89,5 @@ public class CalificacionesDTO {
     public void setObservacion(String Observacion) {
         this.Observacion = Observacion;
     }
-    
+
 }
