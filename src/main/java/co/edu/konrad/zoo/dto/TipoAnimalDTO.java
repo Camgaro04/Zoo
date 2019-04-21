@@ -1,11 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.edu.konrad.zoo.dto;
 
 import co.edu.konrad.zoo.entities.TipoAnimalEntity;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -33,11 +30,20 @@ public class TipoAnimalDTO {
     /**
      * @return Objeto TipoAnimalEntity
      */
-    public TipoAnimalEntity ToEntity() {
+    public TipoAnimalEntity toEntity() {
         TipoAnimalEntity TipoA = new TipoAnimalEntity();
         TipoA.setIdTipoAnimal(this.getIdTipoAnimal());
         TipoA.setNombreTipoAnimal(this.getNombreTipoAnimal());
         return TipoA;
+    }
+
+    public static List<TipoAnimalDTO> toAnimalesList(List<TipoAnimalEntity> tipoAnimal) {
+
+        List<TipoAnimalDTO> listaTipoAnimal = new ArrayList<>();
+        for (TipoAnimalEntity entity : tipoAnimal) {
+            listaTipoAnimal.add(new TipoAnimalDTO(entity));
+        }
+        return listaTipoAnimal;
     }
 
     /**

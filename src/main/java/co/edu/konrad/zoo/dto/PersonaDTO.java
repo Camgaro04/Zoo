@@ -1,31 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.edu.konrad.zoo.dto;
 
 import co.edu.konrad.zoo.entities.PersonaEntity;
 import co.edu.konrad.zoo.entities.TipoIdentificacionEntity;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
  * @author windows
  */
 public class PersonaDTO {
+
     private int idPersona;
     private String nombreCompleto;
     private String numeroIdentificacion;
     private Date fechaNacimiento;
     private String numeroCelular;
-    private TipoIdentificacionEntity idTipoIdentificacion; 
-    
-    public PersonaDTO(){
-    
+    private TipoIdentificacionEntity idTipoIdentificacion;
+
+    public PersonaDTO() {
+
     }
-    
-    public PersonaDTO(PersonaEntity personaEntity){
+
+    public PersonaDTO(PersonaEntity personaEntity) {
         this.idPersona = personaEntity.getIdPersona();
         this.nombreCompleto = personaEntity.getNombreCompleto();
         this.numeroIdentificacion = personaEntity.getNumeroIdentificacion();
@@ -34,7 +32,7 @@ public class PersonaDTO {
         this.idTipoIdentificacion = personaEntity.getIdTipoIdentificacion();
     }
 
-    public PersonaEntity toEntity(){
+    public PersonaEntity toEntity() {
         PersonaEntity personaEntity = new PersonaEntity();
         personaEntity.setIdPersona(this.idPersona);
         personaEntity.setFechaNacimiento(this.fechaNacimiento);
@@ -42,11 +40,19 @@ public class PersonaDTO {
         personaEntity.setNumeroCelular(this.numeroCelular);
         personaEntity.setNumeroIdentificacion(this.numeroIdentificacion);
         personaEntity.setIdTipoIdentificacion(this.idTipoIdentificacion);
-        
+
         return personaEntity;
     }
-    
-    
+
+    public static List<PersonaDTO> toPersonaList(List<PersonaEntity> persona) {
+
+        List<PersonaDTO> listaPersonas = new ArrayList<>();
+        for (PersonaEntity entity : persona) {
+            listaPersonas.add(new PersonaDTO(entity));
+        }
+        return listaPersonas;
+    }
+
     /**
      * @return the idPersona
      */

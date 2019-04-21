@@ -30,9 +30,9 @@ public class TipoAlimentoLogic {
         return p;
     }
      
-    public TipoAlimentoEntity update(TipoAlimentoEntity p){
-        persistence.merge(p);
-        return p;
+    public TipoAlimentoEntity actualizarTipoAlimento(long id,TipoAlimentoEntity entity){
+        TipoAlimentoEntity TipoAlimentoActualizado = persistence.merge(entity);
+        return TipoAlimentoActualizado;
     }
     
     

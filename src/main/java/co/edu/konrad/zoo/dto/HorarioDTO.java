@@ -1,18 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.edu.konrad.zoo.dto;
 
 import co.edu.konrad.zoo.entities.HorarioEntity;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
  * @author Andrés Correa
  */
 public class HorarioDTO {
+
     private long idHorario;
     private String horarioNombre;
     private Date FechaInicio;
@@ -20,22 +18,31 @@ public class HorarioDTO {
 
     public HorarioDTO() {
     }
-    
-    public HorarioDTO(HorarioEntity horarioEntity){
+
+    public HorarioDTO(HorarioEntity horarioEntity) {
         this.idHorario = horarioEntity.getIdHorario();
         this.horarioNombre = horarioEntity.getHorarioNombre();
         this.FechaInicio = horarioEntity.getFechaInicio();
         this.FechaFin = horarioEntity.getFechaFin();
-    
+
     }
-    
-    public HorarioEntity toEntity(){
+
+    public HorarioEntity toEntity() {
         HorarioEntity horarioEntity = new HorarioEntity();
         horarioEntity.setIdHorario(this.idHorario);
         horarioEntity.setHorarioNombre(this.horarioNombre);
-         horarioEntity.setFechaInicio(this.FechaInicio);
-          horarioEntity.setFechaFin(this.FechaFin);
+        horarioEntity.setFechaInicio(this.FechaInicio);
+        horarioEntity.setFechaFin(this.FechaFin);
         return horarioEntity;
+    }
+
+    public static List<HorarioDTO> toHorarioList(List<HorarioEntity> horario) {
+
+        List<HorarioDTO> listaHorarios = new ArrayList<>();
+        for (HorarioEntity entity : horario) {
+            listaHorarios.add(new HorarioDTO(entity));
+        }
+        return listaHorarios;
     }
 
     public long getIdHorario() {
@@ -69,6 +76,5 @@ public class HorarioDTO {
     public void setFechaFin(Date FechaFin) {
         this.FechaFin = FechaFin;
     }
-    
 
 }

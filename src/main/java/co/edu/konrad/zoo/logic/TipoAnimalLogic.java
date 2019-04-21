@@ -12,58 +12,51 @@ import javax.inject.Inject;
  */
 @Stateless
 public class TipoAnimalLogic {
+
     @Inject
     private TipoAnimalPersistence persistence;
-    
-    
+
     /**
      * Get All
      *
      * @return Selecciona todos los Tipos de Animal
      */
-    public List<TipoAnimalEntity> findAll(){
+    public List<TipoAnimalEntity> findAll() {
         return persistence.findAll();
     }
-    
+
     /**
      * Get
      *
      * @param id
      * @return Selecciona un Tipo de Animal x ID
      */
-    public TipoAnimalEntity findById(long id){
+    public TipoAnimalEntity findById(long id) {
         return persistence.find(id);
     }
-    
 
     /**
      * Insert
      *
      * @param p (Entity TipoAnimal)
-     * @return Inserta  un Entity Animal
-     */    
-    public TipoAnimalEntity insert(TipoAnimalEntity p){
+     * @return Inserta un Entity Animal
+     */
+    public TipoAnimalEntity insert(TipoAnimalEntity p) {
         persistence.create(p);
         return p;
     }
-     
-     /**
-     * Update
-     *
-     * @param p (Entity TipoAnimal)
-     * @return Actualiza  un Entity Animal
-     */    
-    public TipoAnimalEntity update(TipoAnimalEntity p){
-        persistence.merge(p);
-        return p;
+
+    public TipoAnimalEntity actualizarTipoAnimal(long id, TipoAnimalEntity entity) {
+        TipoAnimalEntity TipoAnimalActualizado = persistence.merge(entity);
+        return TipoAnimalActualizado;
     }
-        
-     /**
-     * Delete
-     * Elimina un Tipo Animal x ID
+
+    /**
+     * Delete Elimina un Tipo Animal x ID
+     *
      * @param id
-     */  
-    public void delete(int id){
+     */
+    public void delete(int id) {
         persistence.delete(id);
     }
 }

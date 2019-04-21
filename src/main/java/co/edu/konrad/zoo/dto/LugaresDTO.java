@@ -1,24 +1,24 @@
 package co.edu.konrad.zoo.dto;
 
 import co.edu.konrad.zoo.entities.LugaresEntity;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Andres Hernandez
  */
 public class LugaresDTO {
-    
+
     private long idLugar;
     private String nombreLugar;
-    
-    
+
     /**
      * @Constructor Vacio
      */
     public LugaresDTO() {
     }
-    
-    
+
     /**
      * @Inicializa la clase apartir de la entidad
      */
@@ -26,15 +26,24 @@ public class LugaresDTO {
         this.idLugar = Lugar.getIdLugar();
         this.nombreLugar = Lugar.getNombreLugar();
     }
-    
+
     /**
      * @return Objeto LugaresEntity
      */
-    public LugaresEntity ToEntity () {
-        LugaresEntity Lugar = new  LugaresEntity();
+    public LugaresEntity toEntity() {
+        LugaresEntity Lugar = new LugaresEntity();
         Lugar.setIdLugar(this.getIdLugar());
         Lugar.setNombreLugar(this.getNombreLugar());
-        return Lugar;     
+        return Lugar;
+    }
+
+    public static List<LugaresDTO> toLugaresList(List<LugaresEntity> lugares) {
+
+        List<LugaresDTO> listaLugaress = new ArrayList<>();
+        for (LugaresEntity entity : lugares) {
+            listaLugaress.add(new LugaresDTO(entity));
+        }
+        return listaLugaress;
     }
 
     /**
@@ -64,7 +73,5 @@ public class LugaresDTO {
     public void setNombreLugar(String nombreLugar) {
         this.nombreLugar = nombreLugar;
     }
-    
-    
-    
+
 }

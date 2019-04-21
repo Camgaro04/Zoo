@@ -1,26 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.edu.konrad.zoo.dto;
+
 import co.edu.konrad.zoo.entities.EspeciesEntity;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Andres Hernandez
  */
 public class EspeciesDTO {
- 
+
     private long idEspecie;
     private String nombreEspecie;
-    
-     /**
+
+    /**
      * @Constructor Vacio
      */
     public EspeciesDTO() {
     }
-    
-    
+
     /**
      * @param especie
      * @Inicializa la clase apartir de la entidad
@@ -29,15 +27,24 @@ public class EspeciesDTO {
         this.idEspecie = especie.getIdEspecie();
         this.nombreEspecie = especie.getNombreEspecie();
     }
-    
+
     /**
      * @return Objeto EspeciesEntity
      */
-    public EspeciesEntity ToEntity () {
-        EspeciesEntity especie = new  EspeciesEntity();
+    public EspeciesEntity toEntity() {
+        EspeciesEntity especie = new EspeciesEntity();
         especie.setIdEspecie(this.getIdEspecie());
         especie.setNombreEspecie(this.getNombreEspecie());
-        return especie;     
+        return especie;
+    }
+
+    public static List<EspeciesDTO> toEspeciesList(List<EspeciesEntity> especies) {
+
+        List<EspeciesDTO> listaEspeciess = new ArrayList<>();
+        for (EspeciesEntity entity : especies) {
+            listaEspeciess.add(new EspeciesDTO(entity));
+        }
+        return listaEspeciess;
     }
 
     /**

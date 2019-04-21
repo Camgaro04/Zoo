@@ -1,37 +1,43 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.edu.konrad.zoo.dto;
 
 import co.edu.konrad.zoo.entities.TipoIdentificacionEntity;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author windows
  */
 public class TipoIdentificacionDTO {
-    
+
     private int idTipoIdentificacion;
     private String nombreTipoIdentificacion;
-    
-    public TipoIdentificacionDTO(){
-    
+
+    public TipoIdentificacionDTO() {
+
     }
-    
-    public TipoIdentificacionDTO(TipoIdentificacionEntity identificacionEntity ){
+
+    public TipoIdentificacionDTO(TipoIdentificacionEntity identificacionEntity) {
         this.idTipoIdentificacion = identificacionEntity.getIdTipoIdentificacion();
         this.nombreTipoIdentificacion = identificacionEntity.getNombreIdentificacion();
     }
 
-    
-    public TipoIdentificacionEntity toEntity(){
+    public TipoIdentificacionEntity toEntity() {
         TipoIdentificacionEntity identificacionEntity = new TipoIdentificacionEntity();
         identificacionEntity.setIdTipoIdentificacion(this.idTipoIdentificacion);
         identificacionEntity.setNombreIdentificacion(this.nombreTipoIdentificacion);
         return identificacionEntity;
     }
+    
+     public static List<TipoIdentificacionDTO> toTipoIdentificacionList(List<TipoIdentificacionEntity> tipoIdentificacion) {
+
+        List<TipoIdentificacionDTO> listaTipoIdentificacions = new ArrayList<>();
+        for (TipoIdentificacionEntity entity : tipoIdentificacion) {
+            listaTipoIdentificacions.add(new TipoIdentificacionDTO(entity));
+        }
+        return listaTipoIdentificacions;
+    }
+
     /**
      * @return the idTipoIdentificacion
      */
@@ -59,6 +65,5 @@ public class TipoIdentificacionDTO {
     public void setNombreTipoIdentificacion(String nombreTipoIdentificacion) {
         this.nombreTipoIdentificacion = nombreTipoIdentificacion;
     }
-    
-    
+
 }

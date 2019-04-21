@@ -11,32 +11,29 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class CuidadorLogic {
-    
-    private CuidadorPersistence persistence; 
-    
-    
-    public List<CuidadorEntity> findAll(){
+
+    private CuidadorPersistence persistence;
+
+    public List<CuidadorEntity> findAll() {
         return persistence.findAll();
     }
-    
-    public CuidadorEntity findById(int id){
+
+    public CuidadorEntity findById(int id) {
         return persistence.find(id);
     }
-    
-    
-     public CuidadorEntity insert(CuidadorEntity p){
+
+    public CuidadorEntity insert(CuidadorEntity p) {
         persistence.insert(p);
         return p;
     }
-     
-    public CuidadorEntity update(CuidadorEntity p){
-        persistence.update(p);
-        return p;
+
+    public CuidadorEntity actualizarCuidador(long id, CuidadorEntity entity) {
+        CuidadorEntity CuidadorActualizado = persistence.update(entity);
+        return CuidadorActualizado;
     }
-    
-    
-    public void delete(int id){
+
+    public void delete(int id) {
         persistence.delete(id);
     }
-    
+
 }

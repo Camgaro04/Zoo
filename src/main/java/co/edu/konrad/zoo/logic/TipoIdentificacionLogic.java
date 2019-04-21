@@ -31,9 +31,9 @@ public class TipoIdentificacionLogic {
         return p;
     }
      
-    public TipoIdentificacionEntity update(TipoIdentificacionEntity p){
-        persistence.update(p);
-        return p;
+    public TipoIdentificacionEntity actualizarTipoIdentificacion(long id,TipoIdentificacionEntity entity){
+        TipoIdentificacionEntity TipoIdentificacionActualizado = persistence.update(entity);
+        return TipoIdentificacionActualizado;
     }
     
     

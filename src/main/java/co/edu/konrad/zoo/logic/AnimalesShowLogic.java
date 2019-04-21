@@ -12,30 +12,29 @@ import javax.inject.Inject;
 
 @Stateless
 public class AnimalesShowLogic {
+
     @Inject
     private AnimalesShowPersistence persistence;
-    
-    public List<AnimalesShowEntity> findAll(){
+
+    public List<AnimalesShowEntity> findAll() {
         return persistence.findAll();
     }
-    
-    public AnimalesShowEntity findById(long id){
+
+    public AnimalesShowEntity findById(long id) {
         return persistence.find(id);
     }
-    
-    
-     public AnimalesShowEntity insert(AnimalesShowEntity p){
+
+    public AnimalesShowEntity insert(AnimalesShowEntity p) {
         persistence.create(p);
         return p;
     }
-     
-    public AnimalesShowEntity update(AnimalesShowEntity p){
-        persistence.merge(p);
-        return p;
+
+    public AnimalesShowEntity actualizarAnimalesShow(long id, AnimalesShowEntity entity) {
+        AnimalesShowEntity AnimalesShowActualizado = persistence.merge(entity);
+        return AnimalesShowActualizado;
     }
-    
-    
-    public void delete(int id){
+
+    public void delete(int id) {
         persistence.delete(id);
     }
 }
