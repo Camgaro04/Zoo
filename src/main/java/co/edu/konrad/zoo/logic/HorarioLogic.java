@@ -3,12 +3,14 @@ package co.edu.konrad.zoo.logic;
 import co.edu.konrad.zoo.entities.HorarioEntity;
 import co.edu.konrad.zoo.persistence.HorarioPersistence;
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 /**
  *
  * @author Luis
  */
+@Stateless
 public class HorarioLogic {
 
     @Inject
