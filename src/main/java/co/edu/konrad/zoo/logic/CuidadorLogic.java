@@ -4,6 +4,7 @@ import co.edu.konrad.zoo.entities.CuidadorEntity;
 import co.edu.konrad.zoo.persistence.CuidadorPersistence;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 /**
  *
@@ -12,6 +13,7 @@ import javax.ejb.Stateless;
 @Stateless
 public class CuidadorLogic {
 
+    @Inject
     private CuidadorPersistence persistence;
 
     public List<CuidadorEntity> findAll() {

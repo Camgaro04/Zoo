@@ -37,6 +37,7 @@ public class AplicationConfig extends Application {
         resources.add(TipoAlimentoResource.class);
         resources.add(TipoAnimalResource.class);
         resources.add(TipoIdentificacionResource.class);
+        resources.add(NewCrossOriginResourceSharingFilter.class);
     }
 
 }

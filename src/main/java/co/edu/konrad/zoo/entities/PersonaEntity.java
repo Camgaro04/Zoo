@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -28,6 +30,7 @@ public class PersonaEntity implements Serializable{
     private String numeroIdentificacion;
     
     @Column(name="fecha_nacimiento")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fechaNacimiento;
     
     @Column(name="numero_celular")

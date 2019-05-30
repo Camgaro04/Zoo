@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -32,12 +34,14 @@ public class HorarioEntity implements Serializable{
      * 
      */
     @Column
+    @Temporal(TemporalType.TIMESTAMP)
     private Date FechaInicio;
 
     /**
      * 
      */
     @Column
+    @Temporal(TemporalType.TIMESTAMP)
     private Date FechaFin;
 
     public HorarioEntity() {
