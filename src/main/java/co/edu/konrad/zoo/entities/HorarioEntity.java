@@ -43,17 +43,28 @@ public class HorarioEntity implements Serializable{
     @Column
     @Temporal(TemporalType.TIMESTAMP)
     private Date FechaFin;
-
+/**
+ * Constructor vacio
+ */
     public HorarioEntity() {
     }
-
+    /**
+     * Constructor
+     * @param idHorario
+     * @param horarioNombre
+     * @param FechaInicio
+     * @param FechaFin 
+     */
     public HorarioEntity(long idHorario, String horarioNombre, Date FechaInicio, Date FechaFin) {
         this.idHorario = idHorario;
         this.horarioNombre = horarioNombre;
         this.FechaInicio = FechaInicio;
         this.FechaFin = FechaFin;
     }
-
+    /**
+     * Gets and sets of the class
+     * @return 
+     */
     public long getIdHorario() {
         return idHorario;
     }

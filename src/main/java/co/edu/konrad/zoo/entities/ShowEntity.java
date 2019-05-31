@@ -49,10 +49,20 @@ public class ShowEntity  implements Serializable {
     @JoinColumn(name = "lugar")
     @ManyToOne
     private LugaresEntity lugar;
-
+    
+    /**
+     * Constructor vacio
+     */
     public ShowEntity() {
     }
-
+    /**
+     * Constructor 
+     * @param idShow
+     * @param nombre
+     * @param horario
+     * @param personaEncargada
+     * @param lugar 
+     */
     public ShowEntity(long idShow, String nombre, HorarioEntity horario, PersonaEntity personaEncargada, LugaresEntity lugar) {
         this.idShow = idShow;
         this.nombre = nombre;
@@ -60,7 +70,10 @@ public class ShowEntity  implements Serializable {
         this.personaEncargada = personaEncargada;
         this.lugar = lugar;
     }
-
+    /**
+     * Gets and sets of the class
+     * @return 
+     */
     public long getIdShow() {
         return idShow;
     }

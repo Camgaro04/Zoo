@@ -23,12 +23,18 @@ public class CuidadorEntity implements Serializable {
     @JoinColumn(name="id_persona")
     @ManyToOne
     private PersonaEntity idPersona;
-    
+    /**
+     * Constructor vacio
+     */
     public CuidadorEntity(){
     
     }
     
-    
+        /**
+         * Constructor
+         * @param idCiudador
+         * @param idPersona 
+         */
     public CuidadorEntity(int idCiudador,PersonaEntity idPersona){
         this.idCuidador = idCiudador;
         this.idPersona = idPersona;

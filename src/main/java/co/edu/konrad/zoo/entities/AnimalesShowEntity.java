@@ -34,16 +34,27 @@ public class AnimalesShowEntity  implements Serializable {
     @JoinColumn(name = "id_show")
     @ManyToOne
     private ShowEntity idShow;
-
+    
+    /**
+     * Constructor
+     */
     public AnimalesShowEntity() {
     }
-
+    /**
+     * Constructor
+     * @param idAnimalesShow
+     * @param idAnimal
+     * @param idShow 
+     */
     public AnimalesShowEntity(long idAnimalesShow, AnimalesEntity idAnimal, ShowEntity idShow) {
         this.idAnimalesShow = idAnimalesShow;
         this.idAnimal = idAnimal;
         this.idShow = idShow;
     }
-
+    /**
+     * Gets and sets of the class
+     * @return 
+     */
     public long getIdAnimalesShow() {
         return idAnimalesShow;
     }

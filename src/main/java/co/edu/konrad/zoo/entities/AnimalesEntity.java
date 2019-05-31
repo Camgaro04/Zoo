@@ -52,10 +52,21 @@ public class AnimalesEntity  implements Serializable {
     @JoinColumn(name = "cuidador")
     @ManyToOne
     private CuidadorEntity cuidador;
-
+    /**
+     * Constructor vacio
+     */
     public AnimalesEntity() {
     }
-
+    /**
+     * Constructor
+     * @param idAnimal
+     * @param nombre
+     * @param nombreCientifico
+     * @param descripcion
+     * @param especie
+     * @param tipoAnimal
+     * @param cuidador 
+     */
     public AnimalesEntity(long idAnimal, String nombre, String nombreCientifico, String descripcion, EspeciesEntity especie, TipoAnimalEntity tipoAnimal, CuidadorEntity cuidador) {
         this.idAnimal = idAnimal;
         this.nombre = nombre;
@@ -65,7 +76,10 @@ public class AnimalesEntity  implements Serializable {
         this.tipoAnimal = tipoAnimal;
         this.cuidador = cuidador;
     }
-
+    /**
+     * Sets and gets of the class
+     * @param idAnimal 
+     */
     public void setIdAnimal(long idAnimal) {
         this.idAnimal = idAnimal;
     }

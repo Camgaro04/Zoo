@@ -26,27 +26,45 @@ public class TipoAnimalEntity  implements Serializable{
      */
     @Column(name = "nombre_Tipo_Animal")
     private String nombreTipoAnimal;
-
+    /**
+     * Constructo vacio
+     */
     public TipoAnimalEntity() {
     }
-
+    /**
+     * Constructor
+     * @param idTipoAnimal
+     * @param nombreTipoAnimal 
+     */
     public TipoAnimalEntity(long idTipoAnimal, String nombreTipoAnimal) {
         this.idTipoAnimal = idTipoAnimal;
         this.nombreTipoAnimal = nombreTipoAnimal;
     }
-
+    /**
+     * Gets and set of the class
+     * @return 
+     */
     public long getIdTipoAnimal() {
         return idTipoAnimal;
     }
-
+    /**
+     * 
+     * @return 
+     */
     public String getNombreTipoAnimal() {
         return nombreTipoAnimal;
     }
-
+    /**
+     * 
+     * @param idTipoAnimal 
+     */
     public void setIdTipoAnimal(long idTipoAnimal) {
         this.idTipoAnimal = idTipoAnimal;
     }
-
+    /**
+     * 
+     * @param nombreTipoAnimal 
+     */
     public void setNombreTipoAnimal(String nombreTipoAnimal) {
         this.nombreTipoAnimal = nombreTipoAnimal;
     }

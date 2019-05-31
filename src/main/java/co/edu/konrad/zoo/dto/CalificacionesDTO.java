@@ -17,10 +17,16 @@ public class CalificacionesDTO {
     private AnimalesEntity idAnimal;
     private int Calificacion;
     private String Observacion;
-
+    
+    /**
+     * Constructor vacio
+     */
     public CalificacionesDTO() {
     }
-
+    /**
+     * Constructor 
+     * @param calificacionEntity 
+     */
     public CalificacionesDTO(CalificacionEntity calificacionEntity) {
         this.idCalificacion = calificacionEntity.getIdCalificacion();
         this.idShows = calificacionEntity.getIdShow();
@@ -29,7 +35,10 @@ public class CalificacionesDTO {
         this.Observacion = calificacionEntity.getObservacion();
 
     }
-
+    /**
+     * 
+     * @return 
+     */
     public CalificacionEntity toEntity() {
         CalificacionEntity calificacionEntity = new CalificacionEntity();
         calificacionEntity.setIdCalificacion(this.idCalificacion);
@@ -40,7 +49,11 @@ public class CalificacionesDTO {
 
         return calificacionEntity;
     }
-
+    /**
+     * Lista de calificaciones
+     * @param calificaciones
+     * @return 
+     */
     public static List<CalificacionesDTO> toCalificacionesList(List<CalificacionEntity> calificaciones) {
 
         List<CalificacionesDTO> listaSalificaciones = new ArrayList<>();
@@ -49,7 +62,10 @@ public class CalificacionesDTO {
         }
         return listaSalificaciones;
     }
-
+    /**
+     * Gets and sets of the class
+     * @return 
+     */
     public long getIdCalificacion() {
         return idCalificacion;
     }
