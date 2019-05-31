@@ -15,19 +15,29 @@ import javax.persistence.Id;
 
 @Entity
 public class TipoIdentificacionEntity implements Serializable{
-    
+    /**
+     * Columna id de tipo de identificacion
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int idTipoIdentificacion;
-    
+    /**
+     * Columna nombre de identificacion de la tabla
+     */
     @Column(name="nombre_identificacion")  
     private String nombreIdentificacion;
     
-    
+    /**
+     * Constructor vacio
+     */
     public TipoIdentificacionEntity(){
     
     }
-    
+    /**
+     * Consrtructor
+     * @param idTipoIdentificacion
+     * @param nombreIdentificacion 
+     */
     public TipoIdentificacionEntity(int idTipoIdentificacion,String nombreIdentificacion){
         this.idTipoIdentificacion = idTipoIdentificacion;
         this.nombreIdentificacion = nombreIdentificacion;

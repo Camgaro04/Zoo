@@ -35,16 +35,27 @@ public class HorarioTipoAlimentosEntity implements Serializable {
     @JoinColumn(name = "id_tipo_Alimentos")
     @ManyToOne
     private TipoAlimentoEntity idTipoAlimentos;
-
+    /**
+     * Constructor
+     */
     public HorarioTipoAlimentosEntity() {
     }
-
+    /**
+     * Constructor Tipo Alimentos
+     * @param idHorarioTipoAlimentos
+     * @param idHorario
+     * @param idTipoAlimentos 
+     */
     public HorarioTipoAlimentosEntity(long idHorarioTipoAlimentos, HorarioEntity idHorario, TipoAlimentoEntity idTipoAlimentos) {
         this.idHorarioTipoAlimentos = idHorarioTipoAlimentos;
         this.idHorario = idHorario;
         this.idTipoAlimentos = idTipoAlimentos;
     }
-
+    
+    /**
+     * Gets and sets of the class
+     * @return 
+     */
     public long getIdHorarioTipoAlimentos() {
         return idHorarioTipoAlimentos;
     }

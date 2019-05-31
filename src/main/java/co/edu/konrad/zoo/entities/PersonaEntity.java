@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -16,11 +18,15 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class PersonaEntity implements Serializable{
-    
+    /**
+     * Id persona columna
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int idPersona;
-    
+    /**
+     * Nombre Completo columna de tabla
+     */
     @Column(name="nombre_completo")
     private String nombreCompleto;
    
@@ -28,6 +34,7 @@ public class PersonaEntity implements Serializable{
     private String numeroIdentificacion;
     
     @Column(name="fecha_nacimiento")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fechaNacimiento;
     
     @Column(name="numero_celular")
@@ -36,11 +43,21 @@ public class PersonaEntity implements Serializable{
     @JoinColumn(name="tipo_identificacion")
     @ManyToOne
     private TipoIdentificacionEntity idTipoIdentificacion; 
-    
+    /**
+     * Constructor vacio
+     */
     public PersonaEntity(){
     
     }    
-
+    /**
+     * Constructor
+     * @param idPersona
+     * @param nombreCompleto
+     * @param numeroIdentificacion
+     * @param idTipoIdentificacion
+     * @param fechaNacimiento
+     * @param numeroCelular 
+     */
     public PersonaEntity(int idPersona,String nombreCompleto,String numeroIdentificacion,
             TipoIdentificacionEntity idTipoIdentificacion, Date fechaNacimiento,String numeroCelular ){
         

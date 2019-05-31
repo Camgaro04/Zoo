@@ -47,10 +47,19 @@ public class CalificacionEntity  implements Serializable {
      */
     @Column(name = "onservacion")
     private String observacion;
-
+    /**
+     * Constructor vacio
+     */
     public CalificacionEntity() {
     }
-
+    /**
+     * Constructor
+     * @param idCalificacion
+     * @param idShow
+     * @param idAnimal
+     * @param calificacion
+     * @param observacion 
+     */
     public CalificacionEntity(long idCalificacion, ShowEntity idShow, AnimalesEntity idAnimal, int calificacion, String observacion) {
         this.idCalificacion = idCalificacion;
         this.idShow = idShow;
@@ -58,7 +67,10 @@ public class CalificacionEntity  implements Serializable {
         this.calificacion = calificacion;
         this.observacion = observacion;
     }
-
+    /**
+     * Get and set of the class
+     * @return 
+     */
     public long getIdCalificacion() {
         return idCalificacion;
     }

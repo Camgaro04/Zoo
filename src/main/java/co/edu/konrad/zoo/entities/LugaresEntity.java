@@ -14,26 +14,35 @@ import javax.persistence.Id;
 @Entity
 public class LugaresEntity  implements Serializable {
      /**
-     * 
+     * Id lugar
      */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idLugar;
     
     /**
-     * 
+     * Id nombre lugar
      */
     @Column(name = "nombre_lugar")
     private String nombreLugar;
-
+    /**
+     * COnstructor vacio
+     */
     public LugaresEntity() {
     }
-
+    /**
+     * Constructor 
+     * @param idLugar
+     * @param nombreLugar 
+     */
     public LugaresEntity(long idLugar, String nombreLugar) {
         this.idLugar = idLugar;
         this.nombreLugar = nombreLugar;
     }
-
+    /**
+     * Gets and sets of the class
+     * @return 
+     */
     public long getIdLugar() {
         return idLugar;
     }

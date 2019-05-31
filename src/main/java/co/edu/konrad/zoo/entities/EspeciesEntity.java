@@ -25,15 +25,25 @@ public class EspeciesEntity  implements Serializable {
      */
     @Column(name = "nombre_especie")
     private String nombreEspecie;
-
+    /**
+     * Contructor
+     */
     public EspeciesEntity() {
     }
-
+    /**
+     * Constructor 
+     * @param idEspecie
+     * @param nombreEspecie 
+     */
     public EspeciesEntity(long idEspecie, String nombreEspecie) {
         this.idEspecie = idEspecie;
         this.nombreEspecie = nombreEspecie;
     }
-
+    
+    /***
+     * Gets and sets of the class
+     * @return 
+     */
     public long getIdEspecie() {
         return idEspecie;
     }
