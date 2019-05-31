@@ -18,11 +18,17 @@ public class PersonaDTO {
     private Date fechaNacimiento;
     private String numeroCelular;
     private TipoIdentificacionEntity idTipoIdentificacion;
-
+    
+    /**
+     * Constructor vacio
+     */
     public PersonaDTO() {
 
     }
-
+    /**
+     * Contructor 
+     * @param personaEntity 
+     */
     public PersonaDTO(PersonaEntity personaEntity) {
         this.idPersona = personaEntity.getIdPersona();
         this.nombreCompleto = personaEntity.getNombreCompleto();
@@ -31,7 +37,10 @@ public class PersonaDTO {
         this.numeroCelular = personaEntity.getNumeroCelular();
         this.idTipoIdentificacion = personaEntity.getIdTipoIdentificacion();
     }
-
+/**
+ * 
+ * @return 
+ */
     public PersonaEntity toEntity() {
         PersonaEntity personaEntity = new PersonaEntity();
         personaEntity.setIdPersona(this.idPersona);
@@ -43,7 +52,11 @@ public class PersonaDTO {
 
         return personaEntity;
     }
-
+    /**
+     * Lista de personas
+     * @param persona
+     * @return 
+     */
     public static List<PersonaDTO> toPersonaList(List<PersonaEntity> persona) {
 
         List<PersonaDTO> listaPersonas = new ArrayList<>();

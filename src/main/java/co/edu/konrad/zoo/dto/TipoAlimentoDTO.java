@@ -14,17 +14,26 @@ public class TipoAlimentoDTO {
     private long idTipoAlimento;
     private TipoAnimalEntity idTipoAnimal;
     private String nombreAlimento;
-
+    
+    /**
+     * Constructor vacio
+     */
     public TipoAlimentoDTO() {
     }
-
+    /**
+     * Constructor
+     * @param tipoAlimentoEntity 
+     */
     public TipoAlimentoDTO(TipoAlimentoEntity tipoAlimentoEntity) {
         this.idTipoAlimento = tipoAlimentoEntity.getIdTipoAlimento();
         this.idTipoAnimal = tipoAlimentoEntity.getIdTipoAnimal();
         this.nombreAlimento = tipoAlimentoEntity.getNombreAlimento();
 
     }
-
+    /**
+     * 
+     * @return 
+     */
     public TipoAlimentoEntity toEntity() {
         TipoAlimentoEntity tipoAlimentoEntity = new TipoAlimentoEntity();
         tipoAlimentoEntity.setIdTipoAlimento(this.idTipoAlimento);
@@ -33,7 +42,11 @@ public class TipoAlimentoDTO {
 
         return tipoAlimentoEntity;
     }
-
+    /**
+     * Lista de alimentos1
+     * @param tipoAlimento
+     * @return 
+     */
     public static List<TipoAlimentoDTO> toTipoAlimentoList(List<TipoAlimentoEntity> tipoAlimento) {
 
         List<TipoAlimentoDTO> listaTipoAlimentos = new ArrayList<>();

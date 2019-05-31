@@ -25,10 +25,15 @@ public class AnimalesDTO {
     private EspeciesEntity especie;
     private TipoAnimalEntity tipoAnimal;
     private CuidadorEntity cuidador;
-
+/**
+ * contructor vacio
+ */
     public AnimalesDTO() {
     }
-
+    /**
+     * Cosntructor lleno
+     * @param animalesEntity 
+     */
     public AnimalesDTO(AnimalesEntity animalesEntity) {
         this.idAnimal = animalesEntity.getIdAnimal();
         this.nombre = animalesEntity.getNombre();
@@ -38,7 +43,10 @@ public class AnimalesDTO {
         this.tipoAnimal = animalesEntity.getTipoAnimal();
         this.cuidador = animalesEntity.getCuidador();
     }
-
+    /**
+     * 
+     * @return 
+     */
     public AnimalesEntity toEntity() {
         AnimalesEntity animalesEntity = new AnimalesEntity();
         animalesEntity.setIdAnimal(this.idAnimal);
@@ -50,7 +58,11 @@ public class AnimalesDTO {
         animalesEntity.setCuidador(this.cuidador);
         return animalesEntity;
     }
-
+    /**
+     * Lista de animales
+     * @param animales
+     * @return 
+     */
     public static List<AnimalesDTO> toAnimalesList(List<AnimalesEntity> animales) {
 
         List<AnimalesDTO> listaAnimaless = new ArrayList<>();
@@ -59,7 +71,10 @@ public class AnimalesDTO {
         }
         return listaAnimaless;
     }
-
+    /**
+     * Gets and sets of the class
+     * @return 
+     */
     public long getIdAnimal() {
         return idAnimal;
     }

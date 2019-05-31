@@ -13,11 +13,16 @@ public class CuidadorDTO {
 
     private int idCuidador;
     private PersonaEntity idPersona;
-
+    /**
+     * COnstructor vacio
+     */
     public CuidadorDTO() {
 
     }
-
+    /**
+     * Constructor
+     * @param cuidador 
+     */
     public CuidadorDTO(CuidadorEntity cuidador) {
         this.idCuidador = cuidador.getIdCuidador();
         this.idPersona = cuidador.getIdPersona();
@@ -30,7 +35,11 @@ public class CuidadorDTO {
         cuidadorEntity.setIdPersona(this.idPersona);
         return cuidadorEntity;
     }
-
+    /**
+     * Lista Cuidadores
+     * @param cuidador
+     * @return 
+     */
     public static List<CuidadorDTO> toCuidadorList(List<CuidadorEntity> cuidador) {
 
         List<CuidadorDTO> listaCuidadors = new ArrayList<>();

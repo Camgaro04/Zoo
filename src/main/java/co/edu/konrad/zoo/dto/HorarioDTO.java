@@ -15,10 +15,15 @@ public class HorarioDTO {
     private String horarioNombre;
     private Date FechaInicio;
     private Date FechaFin;
-
+/**
+ * Constructor vacio
+ */
     public HorarioDTO() {
     }
-
+    /**
+     * Constructor
+     * @param horarioEntity 
+     */
     public HorarioDTO(HorarioEntity horarioEntity) {
         this.idHorario = horarioEntity.getIdHorario();
         this.horarioNombre = horarioEntity.getHorarioNombre();
@@ -26,7 +31,10 @@ public class HorarioDTO {
         this.FechaFin = horarioEntity.getFechaFin();
 
     }
-
+    /**
+     * 
+     * @return 
+     */
     public HorarioEntity toEntity() {
         HorarioEntity horarioEntity = new HorarioEntity();
         horarioEntity.setIdHorario(this.idHorario);
@@ -35,7 +43,11 @@ public class HorarioDTO {
         horarioEntity.setFechaFin(this.FechaFin);
         return horarioEntity;
     }
-
+    /**
+     * Lista de Horarios
+     * @param horario
+     * @return 
+     */
     public static List<HorarioDTO> toHorarioList(List<HorarioEntity> horario) {
 
         List<HorarioDTO> listaHorarios = new ArrayList<>();
@@ -44,7 +56,10 @@ public class HorarioDTO {
         }
         return listaHorarios;
     }
-
+    /**
+     * Gets and sets of the class
+     * @return 
+     */
     public long getIdHorario() {
         return idHorario;
     }

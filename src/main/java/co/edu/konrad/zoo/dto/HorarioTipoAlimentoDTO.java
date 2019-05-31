@@ -14,24 +14,38 @@ public class HorarioTipoAlimentoDTO {
 
     private HorarioEntity idHorario;
     private TipoAlimentoEntity idTipoAlimentos;
-
+    
+    /**
+     * Constructor vacio
+     */
     public HorarioTipoAlimentoDTO() {
     }
-
+    /**
+     * Constructor
+     * @param horarioTipoAlimentosEntity 
+     */
     public HorarioTipoAlimentoDTO(HorarioTipoAlimentosEntity horarioTipoAlimentosEntity) {
 
         this.idHorario = horarioTipoAlimentosEntity.getIdHorario();
         this.idTipoAlimentos = horarioTipoAlimentosEntity.getIdTipoAlimentos();
 
     }
-
+    /**
+     * 
+     * @return 
+     */
     public HorarioTipoAlimentosEntity toEntity() {
         HorarioTipoAlimentosEntity horarioTipoAlimentosEntity = new HorarioTipoAlimentosEntity();
         horarioTipoAlimentosEntity.setIdHorario(this.idHorario);
         horarioTipoAlimentosEntity.setIdTipoAlimentos(this.idTipoAlimentos);
         return horarioTipoAlimentosEntity;
     }
-
+    
+    /**
+     * Lista de los horarios por tipo de alimentos
+     * @param horarioTipoAlimento
+     * @return 
+     */
     public static List<HorarioTipoAlimentoDTO> toHorarioTipoAlimentoList(List<HorarioTipoAlimentosEntity> horarioTipoAlimento) {
 
         List<HorarioTipoAlimentoDTO> listaHorarioTipoAlimentos = new ArrayList<>();
@@ -40,7 +54,10 @@ public class HorarioTipoAlimentoDTO {
         }
         return listaHorarioTipoAlimentos;
     }
-
+    /**
+     * Gets and Sets of the class
+     * @return 
+     */
     public HorarioEntity getIdHorario() {
         return idHorario;
     }

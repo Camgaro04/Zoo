@@ -12,23 +12,36 @@ public class TipoIdentificacionDTO {
 
     private int idTipoIdentificacion;
     private String nombreTipoIdentificacion;
-
+    
+    /**
+     * Constructo vacio
+     */
     public TipoIdentificacionDTO() {
 
     }
-
+    /**
+     * constructor
+     * @param identificacionEntity 
+     */
     public TipoIdentificacionDTO(TipoIdentificacionEntity identificacionEntity) {
         this.idTipoIdentificacion = identificacionEntity.getIdTipoIdentificacion();
         this.nombreTipoIdentificacion = identificacionEntity.getNombreIdentificacion();
     }
-
+    /**
+     * 
+     * @return 
+     */
     public TipoIdentificacionEntity toEntity() {
         TipoIdentificacionEntity identificacionEntity = new TipoIdentificacionEntity();
         identificacionEntity.setIdTipoIdentificacion(this.idTipoIdentificacion);
         identificacionEntity.setNombreIdentificacion(this.nombreTipoIdentificacion);
         return identificacionEntity;
     }
-    
+       /**
+        * Listado de tipo de identificacion
+        * @param tipoIdentificacion
+        * @return 
+        */
      public static List<TipoIdentificacionDTO> toTipoIdentificacionList(List<TipoIdentificacionEntity> tipoIdentificacion) {
 
         List<TipoIdentificacionDTO> listaTipoIdentificacions = new ArrayList<>();

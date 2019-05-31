@@ -20,10 +20,15 @@ public class AnimalesShowDTO {
     //private PK_AnimalesShow clave;
     private AnimalesEntity idAnimal;
     private ShowEntity idShow;
-
+    /**
+     * Constructor vacio
+     */
     public AnimalesShowDTO() {
     }
-
+    /**
+     * Constructor
+     * @param animalesShowEntity 
+     */
     public AnimalesShowDTO(AnimalesShowEntity animalesShowEntity) {
         // this.clave = animalesShowEntity.getClave();
         this.idAnimal = animalesShowEntity.getIdAnimal();
@@ -39,7 +44,11 @@ public class AnimalesShowDTO {
 
         return animalesShowEntity;
     }
-
+    /**
+     * Lista de animales 
+     * @param animalesShow
+     * @return 
+     */
     public static List<AnimalesShowDTO> toAnimalesShowList(List<AnimalesShowEntity> animalesShow) {
 
         List<AnimalesShowDTO> listaAnimalesShow = new ArrayList<>();
@@ -48,7 +57,10 @@ public class AnimalesShowDTO {
         }
         return listaAnimalesShow;
     }
-
+    /**
+     * Gets and sets of the class
+     * @return 
+     */
     public AnimalesEntity getIdAnimal() {
         return idAnimal;
     }
