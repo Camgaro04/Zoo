@@ -68,7 +68,7 @@ public class AnimalPersistence {
      */
     public void delete(long id) {
         AnimalesEntity entity = em.find(AnimalesEntity.class, id);
-        em.remove(id);
+        em.remove(entity);
     }
 
 }
