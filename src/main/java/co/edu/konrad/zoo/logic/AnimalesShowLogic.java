@@ -19,21 +19,37 @@ public class AnimalesShowLogic {
     public List<AnimalesShowEntity> findAll() {
         return persistence.findAll();
     }
-
+    /**
+     * Encuentra animales por id
+     * @param id
+     * @return 
+     */
     public AnimalesShowEntity findById(long id) {
         return persistence.find(id);
     }
-
+    /**
+     * Inserta 
+     * @param p
+     * @return 
+     */
     public AnimalesShowEntity insert(AnimalesShowEntity p) {
         persistence.create(p);
         return p;
     }
-
+    /**
+     * Actualiza animales
+     * @param id
+     * @param entity
+     * @return 
+     */
     public AnimalesShowEntity actualizarAnimalesShow(long id, AnimalesShowEntity entity) {
         AnimalesShowEntity AnimalesShowActualizado = persistence.merge(entity);
         return AnimalesShowActualizado;
     }
-
+    /**
+     * Elimina animal haciendo puente con la persistencia
+     * @param id 
+     */
     public void delete(int id) {
         persistence.delete(id);
     }
