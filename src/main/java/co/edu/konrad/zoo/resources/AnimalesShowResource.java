@@ -23,16 +23,26 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 @Path("/animalesShow")
 public class AnimalesShowResource {
-
+/**
+ * Conexion a logic
+ */
     @EJB
     private AnimalesShowLogic AnimalesShowLogic;
-
+    
+    /**
+     * Obtiene todos los animales consume el servicio
+     * @return 
+     */
     @GET
     public List<AnimalesShowDTO> getAnimalesShowList() {
         List<AnimalesShowEntity> AnimalesShow = AnimalesShowLogic.findAll();
         return AnimalesShowDTO.toAnimalesShowList(AnimalesShow);
     }
-
+    /**
+     * obtiene el animal por id consumiendo 
+     * @param id
+     * @return 
+     */
     @GET
     @Path("{id: \\d+}")
     public AnimalesShowDTO getAnimalesShow(@PathParam("id") Long id) {
@@ -42,12 +52,21 @@ public class AnimalesShowResource {
         }
         return new AnimalesShowDTO(AnimalesShowo);
     }
-
+    /**
+     * Crea
+     * @param fdto
+     * @return 
+     */
     @POST
     public AnimalesShowDTO createAnimalesShow(AnimalesShowDTO fdto) {
         return new AnimalesShowDTO(AnimalesShowLogic.insert(fdto.toEntity()));
     }
-
+    /**
+     * Actualizaion
+     * @param id
+     * @param AnimalesShow
+     * @return 
+     */
     @PUT
     @Path("{id: \\d+}")
     public AnimalesShowDTO updateAnimalesShow(@PathParam("id") Long id, AnimalesShowDTO AnimalesShow) {
@@ -57,7 +76,11 @@ public class AnimalesShowResource {
         }
         return new AnimalesShowDTO(AnimalesShowLogic.actualizarAnimalesShow(id, AnimalesShow.toEntity()));
     }
-
+    
+    /**
+     * Eliminar 
+     * @param id 
+     */
     @DELETE
     @Path("{AnimalesShowId: \\d+}")
     public void deleteAnimalesShow(@PathParam("AnimalesShowId") int id) {

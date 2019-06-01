@@ -28,16 +28,25 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 @Path("/animales")
 public class AnimalesResource {
-
+    /**
+     * Hace puente a logis
+     */
     @EJB
     private AnimalesLogic AnimalesLogic;
-
+    /**
+     * aqui se consume el servicio ger retornando animales  todos
+     * @return 
+     */
     @GET
     public List<AnimalesDTO> getAnimalesList() {
         List<AnimalesEntity> Animales = AnimalesLogic.findAll();
         return AnimalesDTO.toAnimalesList(Animales);
     }
-
+    /**
+     * aqui se consume el servicio ger retornando animales  todos
+     * @param id
+     * @return 
+     */
     @GET
     @Path("{id: \\d+}")
     public AnimalesDTO getAnimales(@PathParam("id") Long id) {
@@ -47,12 +56,21 @@ public class AnimalesResource {
         }
         return new AnimalesDTO(Animaleso);
     }
-
+    /**
+     * Crea animales consume servicio
+     * @param fdto
+     * @return 
+     */
     @POST
     public AnimalesDTO createAnimales(AnimalesDTO fdto) {
         return new AnimalesDTO(AnimalesLogic.insert(fdto.toEntity()));
     }
-
+    /**
+     * Actuailiza animales consume el servicio
+     * @param id
+     * @param Animales
+     * @return 
+     */
     @PUT
     @Path("{id: \\d+}")
     public AnimalesDTO updateAnimales(@PathParam("id") Long id, AnimalesDTO Animales) {
@@ -62,7 +80,10 @@ public class AnimalesResource {
         }
         return new AnimalesDTO(AnimalesLogic.actualizarAnimales(id, Animales.toEntity()));
     }
-
+    /**
+     * Elimina animales consume el servicio
+     * @param id 
+     */
     @DELETE
     @Path("{AnimalesId: \\d+}")
     public void deleteAnimales(@PathParam("AnimalesId") int id) {

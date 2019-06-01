@@ -26,13 +26,20 @@ public class LugaresResource {
 
     @EJB
     private LugarLogic LugaresLogic;
-
+    /**
+     * Obtiene lista de lugares 
+     * @return 
+     */
     @GET
     public List<LugaresDTO> getLugaresList() {
         List<LugaresEntity> Lugares = LugaresLogic.findAll();
         return LugaresDTO.toLugaresList(Lugares);
     }
-
+/**
+ * Obtien lugar por id servicios
+ * @param id
+ * @return 
+ */
     @GET
     @Path("{id: \\d+}")
     public LugaresDTO getLugares(@PathParam("id") int id) {
@@ -42,12 +49,21 @@ public class LugaresResource {
         }
         return new LugaresDTO(Lugareso);
     }
-
+    /**
+     * Crear
+     * @param fdto
+     * @return 
+     */
     @POST
     public LugaresDTO createLugares(LugaresDTO fdto) {
         return new LugaresDTO(LugaresLogic.insert(fdto.toEntity()));
     }
-
+    /**
+     * ACtualiza
+     * @param id
+     * @param Lugares
+     * @return 
+     */
     @PUT
     @Path("{id: \\d+}")
     public LugaresDTO updateLugares(@PathParam("id") int id, LugaresDTO Lugares) {
@@ -57,7 +73,10 @@ public class LugaresResource {
         }
         return new LugaresDTO(LugaresLogic.actualizarLugares(id, Lugares.toEntity()));
     }
-
+    /**
+     * Elimniar
+     * @param id 
+     */
     @DELETE
     @Path("{LugaresId: \\d+}")
     public void deleteLugares(@PathParam("LugaresId") int id) {

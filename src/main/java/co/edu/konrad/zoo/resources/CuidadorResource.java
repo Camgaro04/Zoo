@@ -23,16 +23,29 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 @Path("/cuidador")
 public class CuidadorResource {
-
+    
+    /**
+     * 
+     * Conexion a logic
+     */
     @EJB
     private CuidadorLogic CuidadorLogic;
-
+    
+    /**
+     * Obtiene toda la lista de los cuidadores
+     * @return 
+     */
     @GET
     public List<CuidadorDTO> getCuidadorList() {
         List<CuidadorEntity> Cuidador = CuidadorLogic.findAll();
         return CuidadorDTO.toCuidadorList(Cuidador);
     }
-
+    
+    /**
+     * Obtiene el cuidador por id servicios
+     * @param id
+     * @return 
+     */
     @GET
     @Path("{id: \\d+}")
     public CuidadorDTO getCuidador(@PathParam("id") int id) {
@@ -42,7 +55,12 @@ public class CuidadorResource {
         }
         return new CuidadorDTO(Cuidadoro);
     }
-
+    
+    /**
+     * Crea un cuidador
+     * @param fdto
+     * @return 
+     */
     @POST
     public CuidadorDTO createCuidador(CuidadorDTO fdto) {
         return new CuidadorDTO(CuidadorLogic.insert(fdto.toEntity()));
@@ -57,7 +75,11 @@ public class CuidadorResource {
         }
         return new CuidadorDTO(CuidadorLogic.actualizarCuidador(id, Cuidador.toEntity()));
     }
-
+    
+    /**
+     * Elimnar
+     * @param id 
+     */
     @DELETE
     @Path("{CuidadorId: \\d+}")
     public void deleteCuidador(@PathParam("CuidadorId") int id) {
