@@ -16,13 +16,19 @@ import javax.ws.rs.core.Application;
  */
 @ApplicationPath("/api")
 public class AplicationConfig extends Application {
-
+    /**
+     * Clase que configura los serivicios
+     * @return 
+     */
     public Set<Class<?>> getClasses() {
         Set<Class<?>> resources = new HashSet<Class<?>>();
         addRestResouceClasses(resources);
         return resources;
     }
-
+    /**
+     * 
+     * @param resources 
+     */
     private void addRestResouceClasses(Set<Class<?>> resources) {
         resources.add(AnimalesResource.class);
         resources.add(AnimalesShowResource.class);

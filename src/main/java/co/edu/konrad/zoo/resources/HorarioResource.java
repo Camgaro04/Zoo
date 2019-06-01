@@ -23,16 +23,25 @@ import javax.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 @Path("/horario")
 public class HorarioResource {
-
+    /**
+     * Conexion a logic
+     */
     @EJB
     private HorarioLogic HorarioLogic;
-
+    /**
+     * Obtiene listado de horarios
+     * @return 
+     */
     @GET
     public List<HorarioDTO> getHorarioList() {
         List<HorarioEntity> Horario = HorarioLogic.findAll();
         return HorarioDTO.toHorarioList(Horario);
     }
-
+    /**
+     * Obtiene horario por id
+     * @param id
+     * @return 
+     */
     @GET
     @Path("{id: \\d+}")
     public HorarioDTO getHorario(@PathParam("id") int id) {
@@ -42,12 +51,21 @@ public class HorarioResource {
         }
         return new HorarioDTO(Horarioo);
     }
-
+    /**
+     * Crear horario
+     * @param fdto
+     * @return 
+     */
     @POST
     public HorarioDTO createHorario(HorarioDTO fdto) {
         return new HorarioDTO(HorarioLogic.insert(fdto.toEntity()));
     }
-
+    /**
+     * Actualiza horario
+     * @param id
+     * @param Horario
+     * @return 
+     */
     @PUT
     @Path("{id: \\d+}")
     public HorarioDTO updateHorario(@PathParam("id") int id, HorarioDTO Horario) {
@@ -57,7 +75,10 @@ public class HorarioResource {
         }
         return new HorarioDTO(HorarioLogic.actualizarHorario(id, Horario.toEntity()));
     }
-
+    /**
+     * Elimina horario
+     * @param id 
+     */
     @DELETE
     @Path("{HorarioId: \\d+}")
     public void deleteHorario(@PathParam("HorarioId") int id) {

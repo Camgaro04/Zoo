@@ -24,15 +24,26 @@ import javax.ws.rs.core.MediaType;
 @Path("/especies")
 public class EspeciesResource {
 
+    /**
+     * hace conexion al logic
+     */
     @EJB
     private EspecieLogic EspeciesLogic;
-
+    
+    /**
+     * Obtiene toda la lista
+     * @return 
+     */
     @GET
     public List<EspeciesDTO> getEspeciesList() {
         List<EspeciesEntity> Especies = EspeciesLogic.findAll();
         return EspeciesDTO.toEspeciesList(Especies);
     }
-
+    /**
+     * obtiene especies por id
+     * @param id
+     * @return 
+     */
     @GET
     @Path("{id: \\d+}")
     public EspeciesDTO getEspecies(@PathParam("id") int id) {
@@ -42,12 +53,23 @@ public class EspeciesResource {
         }
         return new EspeciesDTO(Especieso);
     }
-
+    
+    /**
+     * Crea especies
+     * @param fdto
+     * @return 
+     */
     @POST
     public EspeciesDTO createEspecies(EspeciesDTO fdto) {
         return new EspeciesDTO(EspeciesLogic.insert(fdto.toEntity()));
     }
-
+    
+    /**
+     * Actualiza especies
+     * @param id
+     * @param Especies
+     * @return 
+     */
     @PUT
     @Path("{id: \\d+}")
     public EspeciesDTO updateEspecies(@PathParam("id") int id, EspeciesDTO Especies) {
@@ -57,7 +79,11 @@ public class EspeciesResource {
         }
         return new EspeciesDTO(EspeciesLogic.actualizarEspecie(id, Especies.toEntity()));
     }
-
+    
+    /**
+     * Elimina especies por id
+     * @param id 
+     */
     @DELETE
     @Path("{EspeciesId: \\d+}")
     public void deleteEspecies(@PathParam("EspeciesId") int id) {
